@@ -13,6 +13,8 @@ export async function youtubeDownload(url, audioOnly = false) {
       filter: audioOnly ? 'audioonly' : null
     })
       .pipe(fs.createWriteStream(`downloads/${title}.${format}`));
+
+    return {filePath: `downloads/${title}.${format}`, fileName: `${title}.${format}`};
   } catch (error) {
     console.error(error);
     console.log(`\nPlease check if the URL is correct: ${url}`);
