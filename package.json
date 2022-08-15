@@ -3,7 +3,8 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "dev": "node ."
+    "dev": "node .",
+    "start": "node ."
   },
   "dependencies": {
     "ytdl-core": "^4.11.0"
