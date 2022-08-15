@@ -3,6 +3,7 @@ import ytdl from 'ytdl-core';
 
 export async function youtubeDownload(url, audioOnly = false) {
   try {
+    initDownloadsDirectory();
     const result = await ytdl.getBasicInfo(url);
     let info = await ytdl.getInfo(url);
     const title = result?.player_response?.videoDetails?.title || new Date();
