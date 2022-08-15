@@ -4,7 +4,6 @@ import { initDownloadsDirectory, youtubeDownload } from "./download.js";
 
 initDownloadsDirectory();
 
-const host = 'localhost';
 const port = 3000;
 
 const requestListener = async function (req, res) {
@@ -21,6 +20,6 @@ const requestListener = async function (req, res) {
 }
 
 const server = http.createServer(requestListener);
-server.listen(port, host, () => {
-  console.log(`Server is running on http://${host}:${port}`);
+server.listen(port, () => {
+  console.log(`Server is running on PORT :${port}`);
 });
