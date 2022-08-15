@@ -22,10 +22,9 @@ const requestListener = async function (req, res) {
 
     const { filePath, fileName } = await youtubeDownload(videoUrl, isAudioOnly);
 
-    fs.exists(filePath, function (exists) {
-      if (exists) {
-          // Content-type is very interesting part that guarantee that
-          // Web browser will handle response in an appropriate manner.
+    fs.stat(filePath, function (fileStats) {
+
+      if (!fileStats) {
           res.writeHead(200, {
               "Content-Type": "application/octet-stream",
               "Content-Disposition": "attachment; filename=" + fileName
