@@ -30,6 +30,10 @@ const requestListener = async function (req, res) {
               "Content-Disposition": "attachment; filename=" + fileName
           });
           fs.createReadStream(filePath).pipe(res);
+          setTimeout(() => {
+            console.log(`removing: ${filePath}`)
+            fs.rmSync(filePath);
+          }, 120000);
           return;
       }
       res.writeHead(400, { "Content-Type": "text/plain" });
